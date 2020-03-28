@@ -9,12 +9,8 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&display=swap&subset=cyrillic"
-            rel="stylesheet"
-          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -34,6 +30,15 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="/site.webmanifest" />
           <title>ElForastero</title>
+          <meta name="description" content="Thoughts on tech and frontend." />
+          <meta
+            name="keywords"
+            content="elforaster, eugene dzhumak, frontend, personal blog, евгений джумак"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&display=swap&subset=cyrillic"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

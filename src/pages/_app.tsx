@@ -1,20 +1,9 @@
-import React, { Fragment } from 'react';
-import Head from 'next/head';
+import React from 'react';
 import { AppProps } from 'next/app';
 import 'src/App.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <Fragment>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css?family=Fira+Code:400,500,700&display=swap&subset=cyrillic,latin-ext"
-          rel="stylesheet"
-        />
-      </Head>
-      <Component {...pageProps} />
-    </Fragment>
-  );
+  return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for
