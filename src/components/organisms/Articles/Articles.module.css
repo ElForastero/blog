@@ -1,0 +1,8 @@
+.button {
+  margin-left: var(--s6);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+}

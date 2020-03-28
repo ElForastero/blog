@@ -1,0 +1,6 @@
+.heading2 {
+  font-size: var(--fs6);
+  margin-top: 0;
+  margin-bottom: var(--s8);
+  font-weight: 500;
+}

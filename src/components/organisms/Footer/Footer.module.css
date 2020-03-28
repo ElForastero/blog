@@ -1,0 +1,6 @@
+.root {
+  padding-top: var(--s12);
+  padding-bottom: var(--s6);
+
+  grid-column: span 12;
+}

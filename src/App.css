@@ -1,0 +1,9 @@
+@import '~normalize.css/normalize.css';
+@import 'assets/css/palette.css';
+@import 'assets/css/spaces.css';
+@import 'assets/css/radii.css';
+@import 'assets/css/typography.css';
+
+* {
+  box-sizing: border-box;
+}

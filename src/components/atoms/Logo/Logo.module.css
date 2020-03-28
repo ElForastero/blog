@@ -1,0 +1,8 @@
+.root {
+  font-size: var(--fs6);
+  font-weight: 500;
+}
+
+.text {
+  margin-left: var(--s3);
+}

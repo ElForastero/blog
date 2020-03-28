@@ -1,0 +1,22 @@
+.root {
+  border-radius: var(--r2);
+  background-color: var(--neutral1);
+  border: 1px dashed transparent;
+  font-size: var(--fs2);
+  padding: var(--s2) var(--s2);
+  font-weight: normal;
+  color: var(--neutral8);
+}
+
+.root:hover {
+  background-color: var(--neutral2);
+}
+
+.root:focus {
+  outline: none;
+  border-color: var(--neutral4);
+}
+
+.root:active {
+  border-color: var(--neutral4);
+}
