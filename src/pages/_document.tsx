@@ -36,9 +36,18 @@ class MyDocument extends Document {
             content="elforaster, eugene dzhumak, frontend, personal blog, евгений джумак"
           />
           <link
+            rel="preload"
             href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&display=swap&subset=cyrillic"
-            rel="stylesheet"
+            as="style"
+            // @ts-ignore
+            onLoad="this.onload=null;this.rel='stylesheet'"
           />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&display=swap&subset=cyrillic"
+            />
+          </noscript>
         </Head>
         <body>
           <Main />
