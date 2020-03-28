@@ -3,6 +3,7 @@
 @import 'assets/css/spaces.css';
 @import 'assets/css/radii.css';
 @import 'assets/css/typography.css';
+@import 'assets/css/shadows.css';
 
 * {
   box-sizing: border-box;

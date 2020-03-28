@@ -14,12 +14,13 @@ export const Header: React.FC = () => (
       </a>
     </Link>
     <Navigation>
-      <NavigationLink href="/about">About me</NavigationLink>
       <NavigationLink href="/bookshelf">Bookshelf</NavigationLink>
       <NavigationLink href="https://linkedin.com/in/elforastero" external>
         Contact
       </NavigationLink>
-      <NavigationLink href="/cv">CV</NavigationLink>
+      <NavigationLink href="https://linkedin.com/in/elforastero" external>
+        CV
+      </NavigationLink>
       <ThemeSwitcher />
     </Navigation>
   </header>

@@ -7,6 +7,7 @@
   border: 1px dashed transparent;
   background-color: transparent;
   cursor: pointer;
+  text-align: left;
 }
 
 .root:hover {

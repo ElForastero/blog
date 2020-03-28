@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from 'react';
+import cc from 'classcat';
 import Link, { LinkProps } from 'next/link';
 import s from './NavigationLink.module.css';
 
@@ -12,6 +13,7 @@ type Props = Omit<LinkProps, 'href'> &
  * The link used in horizontal and vertical navigations, and also in the footer.
  */
 export const NavigationLink: React.FC<Props> = ({
+  className,
   children,
   external = false,
   href,
@@ -33,7 +35,7 @@ export const NavigationLink: React.FC<Props> = ({
       <a className={s.root}>{children}</a>
     </Link>
   ) : (
-    <button type="button" className={s.root} {...rest}>
+    <button type="button" className={cc([s.root, className])} {...rest}>
       {children}
     </button>
   );

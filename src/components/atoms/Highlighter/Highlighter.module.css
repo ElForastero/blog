@@ -13,9 +13,5 @@
   height: 0.3em;
   width: 100%;
   z-index: -1;
-  background-image: linear-gradient(
-    to right,
-    var(--additional2) 70%,
-    var(--additional1)
-  );
+  background-color: var(--additional1);
 }
