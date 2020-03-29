@@ -1,0 +1,27 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build 🛠
+      run: |
+        npm install
+        npm run build
+        npm run export -o docs
+
+    - name: Commit changes 💾
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git add .
+        git config --global user.email 'action@github.com'
+        git commit -am "🚀 Deploy"
+        git push
