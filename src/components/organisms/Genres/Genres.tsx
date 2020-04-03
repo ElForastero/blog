@@ -1,5 +1,6 @@
 import React, { useMemo, useContext } from 'react';
 import cc from 'classcat';
+import useTranslation from 'next-translate/useTranslation';
 import {
   Context,
   FILTER_BY_GENRE,
@@ -10,15 +11,8 @@ import s from './Genres.module.css';
 
 const cross = require('./assets/x-circle.svg?include');
 
-const titles = {
-  'popular-science': '🧬 Popular Science',
-  'computer-science': '👨‍💻 Computer Science',
-  cosmology: '🛰 Cosmology',
-  algorithms: '👨‍🎓 Algorithms',
-  business: '📊 Business',
-};
-
 export const Genres = ({ books }) => {
+  const { t } = useTranslation();
   const [filters, dispatch] = useContext(Context);
 
   const genres = useMemo<Array<string>>(() => {
@@ -28,7 +22,7 @@ export const Genres = ({ books }) => {
 
   return (
     <div className={s.root}>
-      <Heading2>Genres</Heading2>
+      <Heading2>{t`bookshelf:genres`}</Heading2>
       <nav className={s.nav}>
         {genres.map(genre => {
           const isActive = genre === filters.genre;
@@ -47,7 +41,7 @@ export const Genres = ({ books }) => {
                 })
               }
             >
-              {titles[genre]}
+              {t(`books:genres.${genre}`)}
               {isActive && (
                 <span
                   className={s.close}

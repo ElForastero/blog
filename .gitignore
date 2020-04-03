@@ -10,7 +10,10 @@
 
 # next.js
 /.next/
-/out/
+/docs/
+
+# next-translate
+/src/pages/
 
 # production
 /build

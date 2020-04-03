@@ -4,7 +4,7 @@ export default [
     author: 'Stephen Hawking',
     rating: '⭐️⭐️⭐️⭐️⭐️',
     cover: require('./covers/a-brief-history-of-time.jpg'),
-    genres: ['popular-science', 'cosmology'],
+    genres: ['popular_science', 'cosmology'],
   },
   {
     title: 'Blood, Sweat, and Pixels',
@@ -18,6 +18,6 @@ export default [
     author: 'Aditya Y. Bhargava',
     rating: '⭐️⭐️⭐️⭐️⭐',
     cover: require('./covers/grokking-algorithms.png'),
-    genres: ['computer-science', 'algorithms'],
+    genres: ['computer_science', 'algorithms'],
   },
 ];

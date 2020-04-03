@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { Heading2 } from 'src/components/atoms/Typography';
 import s from './Tools.module.css';
 
@@ -39,38 +40,42 @@ const tools2 = [
 
 export const Tools: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
-}) => (
-  <section className={className}>
-    <Heading2>Tools I’m using</Heading2>
-    <div className={s.root}>
-      <div>
-        {tools.map(({ link, icon, title }) => (
-          <a
-            href={link}
-            key={title}
-            className={s.item}
-            rel="noopener,noreferrer"
-            target="_blank"
-          >
-            <img className={s.icon} src={icon} alt={title} />
-            {title}
-          </a>
-        ))}
+}) => {
+  const { t } = useTranslation();
+
+  return (
+    <section className={className}>
+      <Heading2>{t`home:tools`}</Heading2>
+      <div className={s.root}>
+        <div>
+          {tools.map(({ link, icon, title }) => (
+            <a
+              href={link}
+              key={title}
+              className={s.item}
+              rel="noopener,noreferrer"
+              target="_blank"
+            >
+              <img className={s.icon} src={icon} alt={title} />
+              {title}
+            </a>
+          ))}
+        </div>
+        <div>
+          {tools2.map(({ link, icon, title }) => (
+            <a
+              href={link}
+              key={title}
+              className={s.item}
+              rel="noopener,noreferrer"
+              target="_blank"
+            >
+              <img className={s.icon} src={icon} alt={title} />
+              {title}
+            </a>
+          ))}
+        </div>
       </div>
-      <div>
-        {tools2.map(({ link, icon, title }) => (
-          <a
-            href={link}
-            key={title}
-            className={s.item}
-            rel="noopener,noreferrer"
-            target="_blank"
-          >
-            <img className={s.icon} src={icon} alt={title} />
-            {title}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
