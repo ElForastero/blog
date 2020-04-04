@@ -24,4 +24,4 @@ jobs:
         git config --global user.email 'action@github.com'
         git add out --force
         git commit -m ':rocket: Deploy'
-        git subtree push --prefix out "https://elforastero:${{ secrets.GITHUB_TOKEN }}@github.com/elforastero/elforastero.github.io.git" master
+        git subtree push --prefix out "https://elforastero:${{ secrets.DEPLOY_TOKEN }}@github.com/elforastero/elforastero.github.io.git" master
