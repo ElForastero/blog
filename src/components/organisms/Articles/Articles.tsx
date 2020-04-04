@@ -18,7 +18,7 @@ export const Articles: React.FC<Props> = ({
   posts,
   showBlogLink,
 }) => {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   return (
     <section className={className}>
@@ -30,11 +30,18 @@ export const Articles: React.FC<Props> = ({
           </Button>
         )}
       </Heading2>
-      {posts.slice(0, count ?? posts.length).map(({ slug, title, cover }) => (
-        <CatalogItem key={slug} icon={cover} href={`/blog/${slug}`}>
-          {title}
-        </CatalogItem>
-      ))}
+      {posts[lang]
+        .slice(0, count ?? posts.length)
+        .map(({ slug, title, cover }) => (
+          <CatalogItem
+            key={slug}
+            icon={cover}
+            href={`/blog/[slug]`}
+            as={`/blog/${slug}`}
+          >
+            {title}
+          </CatalogItem>
+        ))}
     </section>
   );
 };

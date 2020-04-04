@@ -4,8 +4,9 @@
   "currentPagesDir": "src/_pages",
   "finalPagesDir": "src/pages",
   "localesPath": "src/locales",
+  "redirectToDefaultLang": true,
   "pages": {
-    "*": ["common"],
+    "*": ["common", "meta"],
     "/": ["home"],
     "/bookshelf": ["bookshelf", "books"],
     "/blog": ["blog"]

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 const withMDX = require('@next/mdx');
@@ -11,6 +12,9 @@ const slug = require('remark-slug');
 const toc = require('remark-toc');
 
 const nextConfig = {
+  env: {
+    SITE_URL: process.env.SITE_URL,
+  },
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
@@ -62,12 +66,7 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
-    [
-      optimizedImages,
-      {
-        /* config for next-optimized-images */
-      },
-    ],
+    optimizedImages,
     withMDX({
       options: {
         remarkPlugins: [

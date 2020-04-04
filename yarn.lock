@@ -3022,6 +3022,11 @@ domutils@^1.7.0:
     dom-serializer "0"
     domelementtype "1"
 
+dotenv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
 download@^6.2.2:
   version "6.2.5"
   resolved "https://registry.yarnpkg.com/download/-/download-6.2.5.tgz#acd6a542e4cd0bb42ca70cfc98c9e43b07039714"
@@ -6215,6 +6220,11 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-schemaorg@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-schemaorg/-/react-schemaorg-1.0.1.tgz#c8865a81861f424181efaa2f5919164287c920c4"
+  integrity sha512-nt/37U4yORyYL5y2ZL4f5mtVtuchqo9I2vMSVPEHkV9cPsqQJLsYrhHkPkJmecN7DTqHue9D3v2gnPoVmFp0DQ==
+
 react-syntax-highlighter@^12.2.1:
   version "12.2.1"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-12.2.1.tgz#14d78352da1c1c3f93c6698b70ec7c706b83493e"
@@ -6684,6 +6694,11 @@ scheduler@^0.19.1:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+schema-dts@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-0.5.2.tgz#eccfbaae7c4bd448aa59821ab1fe7311e5104a22"
+  integrity sha512-+5hqt+jzvD/uMwxMnYEmnZpGO+gthtCzyflY0Niu2rNyJg4X6I5MOVYDvfFJiiqSWtYx2S1xE3KDNUf67I1yZw==
 
 schema-utils@^1.0.0:
   version "1.0.0"

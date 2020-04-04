@@ -1,37 +1,65 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import useTranslation from 'next-translate/useTranslation';
+import Router from 'next-translate/Router';
 import Head from 'next/head';
 import { getAllPosts, getPostBySlug } from 'src/libs/api';
 import { MDXProvider } from '@mdx-js/react';
 import { Home as Layout } from 'src/layouts/home';
 import { Code } from 'src/components/organisms/Code';
+import { Schema } from 'src/components/organisms/Schema';
 import s from './Post.module.css';
 
-const components = {
-  pre: props => <div {...props} />,
-  code: Code,
-};
+const components = { code: Code };
 
-const Post = ({ meta, content }) => {
+const Post = ({ status = null, slug, meta, content }) => {
+  const { t, lang } = useTranslation();
+
+  // @todo Find a way to properly render 404 page
+  if (status !== null) {
+    return (
+      <Head>
+        <meta httpEquiv="refresh" content="0;URL=/" />
+      </Head>
+    );
+  }
+
   return (
     <Layout>
       <Head>
-        <title>{meta.title}</title>
+        <title>{t('meta:post.title', { title: meta.title })}</title>
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta
+          property="og:image"
+          content={`https://og-image.now.sh/${encodeURIComponent(
+            meta.title
+          )}.jpg`}
+        />
+        <meta
+          property="og:url"
+          content={`${process.env.SITE_URL}/${lang}/blog/${slug}`}
+        />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta
+          name="twitter:image"
+          content={`https://og-image.now.sh/${encodeURIComponent(
+            meta.title
+          )}.jpg`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <Schema {...meta} lang={lang} slug={slug} />
       </Head>
       <div className={s.root}>
         <header className={s.header}>
-          <div
-            // style={{ backgroundImage: `url(${meta.cover})` }}
-            className={s.cover}
-          >
-            🚀
-          </div>
+          <div className={s.cover}>🚀</div>
           <div className={s.meta}>
             <h1 className={s.title}>{meta.title}</h1>
             <time className={s.date}>
-              {new Date(meta.date).toLocaleDateString('en', {
+              {new Date(meta.datePublished).toLocaleDateString(lang, {
                 day: '2-digit',
                 month: 'long',
                 year: 'numeric',
@@ -45,13 +73,17 @@ const Post = ({ meta, content }) => {
   );
 };
 
-export const getStaticProps = async ({ params: { slug } }) => {
-  const data = getPostBySlug(slug);
-  const PageContent = data.default;
+export const getStaticProps = async ({ params: { slug }, lang }) => {
+  const { default: PageContent, ...data } = getPostBySlug(lang, slug);
+
+  // No translation for this post
+  if (PageContent === undefined) {
+    return { props: { status: 404 } };
+  }
 
   return {
     props: {
-      meta: data.meta,
+      ...data,
       content: ReactDOM.renderToStaticMarkup(
         <MDXProvider components={components}>
           <PageContent />
@@ -61,9 +93,17 @@ export const getStaticProps = async ({ params: { slug } }) => {
   };
 };
 
-export const getStaticPaths = async () => ({
-  fallback: false,
-  paths: getAllPosts().map(({ slug }) => ({ params: { slug } })),
-});
+export const getStaticPaths = async () => {
+  const posts = getAllPosts();
+
+  const paths = Object.keys(posts).flatMap(lang =>
+    posts[lang].map(({ slug }) => ({ params: { slug } }))
+  );
+
+  return {
+    fallback: false,
+    paths,
+  };
+};
 
 export default Post;

@@ -13,7 +13,9 @@ const Bookshelf: React.FC = () => {
   return (
     <Layout>
       <Head>
-        <title>{t`bookshelf:heading`}</title>
+        <title>{t`meta:bookshelf.title`}</title>
+        <meta name="description" content={t`meta:bookshelf.description`} />
+        <meta name="keywords" content={t`meta:bookshelf.keywords`} />
       </Head>
       <BookshelfProvider>
         <Books books={books} />

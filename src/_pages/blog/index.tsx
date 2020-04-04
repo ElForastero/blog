@@ -12,7 +12,9 @@ const Blog = ({ posts }) => {
   return (
     <Layout>
       <Head>
-        <title>{t`blog:heading`}</title>
+        <title>{t`meta:blog.title`}</title>
+        <meta name="description" content={t`meta:blog.description`} />
+        <meta name="keywords" content={t`meta:blog.keywords`} />
       </Head>
       <Articles className={s.root} posts={posts} />
     </Layout>

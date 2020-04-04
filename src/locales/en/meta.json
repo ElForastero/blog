@@ -1,0 +1,32 @@
+{
+  "home": {
+    "title": "Blog ﹣ Eugene Dzhumak",
+    "description": "Notes about programming, frontend, interesting projects and IT industry in general.",
+    "keywords": "Eugene Dzhumak, personal blog, cv"
+  },
+  "bookshelf": {
+    "title": "Bookshelf ﹣ Eugene Dzhumak",
+    "description": "Programmer's library. My personal rating and reviews of the books I read.",
+    "keywords": "bookshelf, books, reviews, programmer's library, frontend"
+  },
+  "blog": {
+    "title": "Notes ﹣ Eugene Dzhumak",
+    "description": "Notes about programming, frontend, interesting projects and IT industry in general.",
+    "keywords": "blog, notes, posts, Eugene Dzhumak"
+  },
+  "post": {
+    "title": "{{title}} ﹣ Eugene Dzhumak"
+  },
+  "schema": {
+    "author": {
+      "name": "Eugene Dzhumak",
+      "alternateName": "ElForastero",
+      "knowsAbout": [
+        "Computer Science",
+        "Frontend",
+        "Programming",
+        "JavaScript"
+      ]
+    }
+  }
+}
