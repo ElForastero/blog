@@ -17,10 +17,11 @@ jobs:
         npm run build
         npm run export
 
-    - name: Commit changes 💾
+    - name: Deploying stuff 🚀
       run: |
-        touch docs/.nojekyll
+        touch out/.nojekyll
         git config --global user.name 'GitHub Action'
         git config --global user.email 'action@github.com'
-        git add .
-        git config --global user.email 'action@github.com'
+        git add out --force
+        git commit -m ':rocket: Deploy'
+        git subtree push --prefix out production master
