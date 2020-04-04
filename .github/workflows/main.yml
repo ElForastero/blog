@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
+      with:
+         persist-credentials: false
+         fetch-depth: 0
 
     - name: Build 🛠
       run: |
@@ -17,10 +20,12 @@ jobs:
         npm run build
         npm run export
 
-    - name: Commit changes 💾
+    - name: Deploying stuff  🚀
       run: |
-        touch docs/.nojekyll
+        touch out/.nojekyll
         git config --global user.name 'GitHub Action'
         git config --global user.email 'action@github.com'
-        git add .
-        git config --global user.email 'action@github.com'
+        git add out --force
+        git commit -m ':rocket: Deploy'
+        git subtree split --prefix out -b gh-pages
+        git push --force "https://elforastero:${{ secrets.DEPLOY_TOKEN }}@github.com/elforastero/elforastero.github.io.git" gh-pages:master
