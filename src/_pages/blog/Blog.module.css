@@ -1,9 +1,0 @@
-.root {
-  grid-column: col 3 / span 8;
-}
-
-@media screen and (max-width: 768px) {
-  .root {
-    grid-column: span 12;
-  }
-}
