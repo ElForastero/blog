@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - shell: bash
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
     - uses: actions/checkout@v2
 
     - name: Build 🛠
@@ -24,4 +27,4 @@ jobs:
         git config --global user.email 'action@github.com'
         git add out --force
         git commit -m ':rocket: Deploy'
-        git subtree push --prefix out "https://ElForastero:${secrets.GITHUB_TOKEN}@github.com/elforastero.github.io.git" master
+        git subtree push --prefix out "https://ElForastero:$DEPLOY_KEY@github.com/elforastero.github.io.git" master
