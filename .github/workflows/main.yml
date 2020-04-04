@@ -17,7 +17,7 @@ jobs:
         npm run build
         npm run export
 
-    - name: Deploying stuff 🚀
+    - name: Deploying stuff  🚀
       run: |
         touch out/.nojekyll
         git config --global user.name 'GitHub Action'
