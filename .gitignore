@@ -10,7 +10,7 @@
 
 # next.js
 /.next/
-/docs/
+/out/
 
 # next-translate
 /src/pages/
