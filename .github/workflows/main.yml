@@ -24,5 +24,3 @@ jobs:
         git config --global user.email 'action@github.com'
         git add .
         git config --global user.email 'action@github.com'
-        git commit -am "🚀 Deploy"
-        git push
