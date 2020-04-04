@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - shell: bash
-      env:
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
     - uses: actions/checkout@v2
 
     - name: Build 🛠
@@ -20,7 +17,10 @@ jobs:
         npm run build
         npm run export
 
-    - name: Deploying stuff 🚀
+    - shell: bash
+      name: Deploying stuff 🚀
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
       run: |
         touch out/.nojekyll
         git config --global user.name 'GitHub Action'
