@@ -10,7 +10,6 @@ import s from './Post.module.css';
 
 const Post = ({ status = null, slug, meta }) => {
   const { t, lang } = useTranslation();
-  const { default: Content } = getPostBySlug(lang, slug);
 
   // @todo Find a way to properly render 404 page
   if (status !== null) {
@@ -20,6 +19,8 @@ const Post = ({ status = null, slug, meta }) => {
       </Head>
     );
   }
+  
+  const { default: Content } = getPostBySlug(lang, slug);
 
   return (
     <Layout>
