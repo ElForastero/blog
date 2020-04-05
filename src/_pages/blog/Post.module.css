@@ -1,11 +1,11 @@
 .root {
   grid-column: col 3 / span 8;
-  font-size: var(--fs3);
 }
 
 .root img {
   border-radius: var(--r2);
   max-width: 100%;
+  vertical-align: top;
 }
 
 .root code {
@@ -81,7 +81,6 @@
 }
 
 .root table tr {
-  /*background-color: #fff;*/
   border-top: 1px solid var(--neutral2);
 }
 
@@ -89,9 +88,27 @@
   background-color: var(--neutral1);
 }
 
+.root figure {
+  margin: 0;
+}
+
+.root figcaption {
+  margin-top: var(--leading);
+  color: var(--neutral5);
+  font-size: var(--fs2);
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
   .root {
     grid-column: span 12;
+  }
+
+  .root > img {
+    max-width: 100vw;
+    margin-left: calc(var(--s4) * -1);
+    margin-right: calc(var(--s4) * -1);
+    border-radius: 0;
   }
 }
 
@@ -105,8 +122,9 @@ body[data-theme='dark'] .root img {
 }
 
 .cover {
-  font-size: 78px;
-  line-height: 78px;
+  flex-shrink: 0;
+  font-size: var(--fs11);
+  line-height: var(--fs11);
   margin-right: 24px;
 }
 
@@ -119,4 +137,10 @@ body[data-theme='dark'] .root img {
 }
 
 .meta {
+}
+
+@media screen and (max-width: 768px) {
+  .cover {
+    display: none;
+  }
 }

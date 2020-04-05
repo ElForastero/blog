@@ -12,17 +12,22 @@ export function getPostMetaBySlug(lang: string, slug: string) {
   };
 }
 
-export function getPostBySlug(lang: string, slug: string) {
-  if (!fs.existsSync(`src/posts/${lang}/${slug}/index.mdx`)) {
+export function getPostBySlug(
+  lang: string,
+  slug: string,
+  checkForExistence: boolean = false
+) {
+  if (
+    checkForExistence &&
+    !fs.existsSync(`src/posts/${lang}/${slug}/index.mdx`)
+  ) {
     return { slug, lang, post: null };
   }
-
-  const post = require(`src/posts/${lang}/${slug}/index.mdx`);
 
   return {
     slug,
     lang,
-    ...post,
+    ...require(`src/posts/${lang}/${slug}/index.mdx`),
   };
 }
 

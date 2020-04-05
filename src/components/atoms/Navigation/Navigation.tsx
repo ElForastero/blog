@@ -23,7 +23,9 @@ export const Navigation = ({ children }) => {
           aria-label="Menu close"
           dangerouslySetInnerHTML={{ __html: x }}
         />
-        {children}
+        <div className={s.items}>
+          {children}
+        </div>
       </nav>
     </div>
   );

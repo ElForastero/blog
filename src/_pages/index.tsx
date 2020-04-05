@@ -1,7 +1,7 @@
 import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
-import { Home as Layout } from 'src/layouts/home';
+import { Common as Layout } from 'src/layouts/common';
 import { Hero } from 'src/components/organisms/Hero';
 import { Articles } from 'src/components/organisms/Articles';
 import { Projects } from 'src/components/organisms/Projects';
@@ -21,7 +21,7 @@ const Home = ({ posts }) => {
         <meta name="keywords" content={t`meta:home.keywords`} />
       </Head>
       <Hero />
-      <Articles className={s.section} posts={posts} count={5} showBlogLink />
+      <Articles className={s.section} posts={posts} count={3} showBlogLink />
       <Projects className={s.section} />
       <Talks className={s.section} />
       <Tools className={s.section} />

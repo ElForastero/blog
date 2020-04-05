@@ -3,5 +3,7 @@
   "welcome": "I'm a frontend engineer from Russia.",
   "projects": "Projects",
   "talks": "Talks",
-  "tools": "Tools I'm using"
+  "tools": "Tools I'm using",
+  "show_all": "Show All",
+  "latest_articles": "Latest Articles"
 }

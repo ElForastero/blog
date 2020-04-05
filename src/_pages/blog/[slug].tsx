@@ -1,19 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
 import useTranslation from 'next-translate/useTranslation';
-import Router from 'next-translate/Router';
 import Head from 'next/head';
 import { getAllPosts, getPostBySlug } from 'src/libs/api';
 import { MDXProvider } from '@mdx-js/react';
-import { Home as Layout } from 'src/layouts/home';
+import { Common as Layout } from 'src/layouts/common';
 import { Code } from 'src/components/organisms/Code';
 import { Schema } from 'src/components/organisms/Schema';
 import s from './Post.module.css';
 
-const components = { code: Code };
-
-const Post = ({ status = null, slug, meta, content }) => {
+const Post = ({ status = null, slug, meta }) => {
   const { t, lang } = useTranslation();
+  const { default: Content } = getPostBySlug(lang, slug);
 
   // @todo Find a way to properly render 404 page
   if (status !== null) {
@@ -55,7 +52,7 @@ const Post = ({ status = null, slug, meta, content }) => {
       </Head>
       <div className={s.root}>
         <header className={s.header}>
-          <div className={s.cover}>🚀</div>
+          <div className={s.cover}>{meta.cover}</div>
           <div className={s.meta}>
             <h1 className={s.title}>{meta.title}</h1>
             <time className={s.date}>
@@ -67,14 +64,16 @@ const Post = ({ status = null, slug, meta, content }) => {
             </time>
           </div>
         </header>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <MDXProvider components={{ code: Code }}>
+          <Content />
+        </MDXProvider>
       </div>
     </Layout>
   );
 };
 
 export const getStaticProps = async ({ params: { slug }, lang }) => {
-  const { default: PageContent, ...data } = getPostBySlug(lang, slug);
+  const { default: PageContent, ...data } = getPostBySlug(lang, slug, true);
 
   // No translation for this post
   if (PageContent === undefined) {
@@ -84,11 +83,8 @@ export const getStaticProps = async ({ params: { slug }, lang }) => {
   return {
     props: {
       ...data,
-      content: ReactDOM.renderToStaticMarkup(
-        <MDXProvider components={components}>
-          <PageContent />
-        </MDXProvider>
-      ),
+      lang,
+      slug,
     },
   };
 };

@@ -5,7 +5,7 @@ import books from 'src/books';
 import { Provider as BookshelfProvider } from 'src/components/context/BookshelfContext';
 import { Books } from 'src/components/organisms/Books';
 import { Genres } from 'src/components/organisms/Genres';
-import { Home as Layout } from 'src/layouts/home';
+import { Common as Layout } from 'src/layouts/common';
 
 const Bookshelf: React.FC = () => {
   const { t } = useTranslation();

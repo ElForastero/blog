@@ -12,23 +12,16 @@ type Props = {
   showBlogLink?: boolean;
 };
 
-export const Articles: React.FC<Props> = ({
-  className,
-  count,
-  posts,
-  showBlogLink,
-}) => {
+export const Articles: React.FC<Props> = ({ className, count, posts }) => {
   const { t, lang } = useTranslation();
 
   return (
     <section className={className}>
       <Heading2 className={s.heading}>
-        {t`common:latest_articles`}{' '}
-        {showBlogLink && (
-          <Button className={s.button} href="/blog">
-            {t`common:show_all`}
-          </Button>
-        )}
+        {t`home:latest_articles`}{' '}
+        <Button className={s.button} href="/blog">
+          {t`home:show_all`}
+        </Button>
       </Heading2>
       {posts[lang]
         .slice(0, count ?? posts.length)

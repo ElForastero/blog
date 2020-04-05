@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
 import { getAllPosts } from 'src/libs/api';
-import { Home as Layout } from 'src/layouts/home';
-import { Articles } from 'src/components/organisms/Articles';
+import { Common as Layout } from 'src/layouts/common';
+import { Heading2, Heading3 } from 'src/components/atoms/Typography';
+import { CatalogItem } from 'src/components/atoms/CatalogItem';
 import s from './Blog.module.css';
 
 const Blog = ({ posts }) => {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
+  let lastDate = null;
+
+  const postsSortedChronologically = posts[lang]
+    .sort(
+      ({ datePublished: d1 }, { datePublished: d2 }) =>
+        new Date(d2).getTime() - new Date(d1).getTime()
+    )
+    .reduce((acc, post) => {
+      const year = new Date(post.datePublished).getFullYear();
+
+      return { ...acc, [year]: [...(acc[year] ?? []), post] };
+    }, {});
 
   return (
     <Layout>
@@ -16,7 +29,45 @@ const Blog = ({ posts }) => {
         <meta name="description" content={t`meta:blog.description`} />
         <meta name="keywords" content={t`meta:blog.keywords`} />
       </Head>
-      <Articles className={s.root} posts={posts} />
+      <section className={s.root}>
+        <Heading2 className={s.heading}>{t`blog:heading`} </Heading2>
+        {Object.keys(postsSortedChronologically)
+          .reverse()
+          .map(year => (
+            <section className={s.section} key={year}>
+              <Heading3 className={s.heading}>{year}</Heading3>
+
+              <table className={s.table}>
+                <tbody>
+                  {postsSortedChronologically[year].map(
+                    ({ slug, title, cover, datePublished }) => (
+                      <tr key={slug}>
+                        <td>
+                          <time className={s.date}>
+                            {new Date(datePublished).toLocaleDateString(lang, {
+                              day: 'numeric',
+                              month: '2-digit',
+                            })}
+                          </time>
+                        </td>
+                        <td>
+                          <CatalogItem
+                            key={slug}
+                            icon={cover}
+                            href={`/blog/[slug]`}
+                            as={`/blog/${slug}`}
+                          >
+                            {title}
+                          </CatalogItem>
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </table>
+            </section>
+          ))}
+      </section>
     </Layout>
   );
 };

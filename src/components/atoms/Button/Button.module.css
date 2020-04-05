@@ -6,6 +6,7 @@
   padding: var(--s2) var(--s2);
   font-weight: normal;
   color: var(--neutral8);
+  white-space: nowrap;
 }
 
 .root:hover {

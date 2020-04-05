@@ -10,8 +10,14 @@ const github = require('remark-github');
 const contributors = require('remark-git-contributors');
 const slug = require('remark-slug');
 const toc = require('remark-toc');
+const captions = require('remark-captions');
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   env: {
     SITE_URL: process.env.SITE_URL,
   },
@@ -25,7 +31,7 @@ const nextConfig = {
 
     config.resolve.modules.push(__dirname);
 
-    // 👀
+    // // 👀
     let rule, moduleRules, cssLoader;
     if (
       (rule = config.module.rules.find(rule =>
@@ -78,10 +84,12 @@ module.exports = withPlugins(
           [contributors, { appendIfMissing: false }],
           slug,
           toc,
+          captions,
         ],
         rehypePlugins: [],
       },
     }),
+    withBundleAnalyzer,
   ],
   nextConfig
 );

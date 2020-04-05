@@ -2,6 +2,23 @@
   grid-column: col 3 / span 8;
 }
 
+.heading {
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  margin-bottom: var(--s6);
+}
+
+.table {
+  width: 100%;
+}
+
+.date {
+  color: var(--neutral5);
+}
+
 @media screen and (max-width: 768px) {
   .root {
     grid-column: span 12;

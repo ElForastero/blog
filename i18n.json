@@ -9,6 +9,7 @@
     "*": ["common", "meta"],
     "/": ["home"],
     "/bookshelf": ["bookshelf", "books"],
-    "/blog": ["blog"]
+    "/blog": ["blog"],
+    "/test": ["blog"]
   }
 }
