@@ -7,6 +7,7 @@ import { Articles } from 'src/components/organisms/Articles';
 import { Projects } from 'src/components/organisms/Projects';
 import { Talks } from 'src/components/organisms/Talks';
 import { Tools } from 'src/components/organisms/Tools';
+import { AlternateLinks } from 'src/components/organisms/AlternateLinks';
 import s from './Home.module.css';
 import { getAllPosts } from '../libs/api';
 
@@ -20,6 +21,7 @@ const Home = ({ posts }) => {
         <meta name="description" content={t`meta:home.description`} />
         <meta name="keywords" content={t`meta:home.keywords`} />
       </Head>
+      <AlternateLinks url="/" />
       <Hero />
       <Articles className={s.section} posts={posts} count={3} showBlogLink />
       <Projects className={s.section} />

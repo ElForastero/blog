@@ -5,7 +5,8 @@ export const meta = {
   description: "Actually it's not even a post",
   keywords: ['first post'],
   genre: ['personal'],
-  cover: '🥇',
+  icon: '🥇',
+  cover: require('./assets/kitties.jpg'),
   datePublished: '2020-04-05 00:00:00',
   dateModified: '2020-04-05 00:00:00',
 };
@@ -14,15 +15,15 @@ Frankly saying this post is here just because the script that is building a post
 
 But please don't be upset. I'll leave here some kittens. 😅
 
+```typescript
+if (kitties.length === 8) {
+  console.log("Oh, my God, that's so cute 😊");
+}
+```
+
 <LightBox>
   <figure>
     <img src={require('./assets/kitties.jpg')} alt="kitties" />
     <figcaption>Photo by The Lucky Neko on Unsplash</figcaption>
   </figure>
 </LightBox>
-
-```typescript
-if (kitties.length === 8) {
-  console.log("Oh, my God, that's so cute 😊");
-}
-```

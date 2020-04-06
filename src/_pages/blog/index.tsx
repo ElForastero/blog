@@ -6,6 +6,7 @@ import { Common as Layout } from 'src/layouts/common';
 import { Heading2, Heading3 } from 'src/components/atoms/Typography';
 import { CatalogItem } from 'src/components/atoms/CatalogItem';
 import s from './Blog.module.css';
+import { AlternateLinks } from '../../components/organisms/AlternateLinks';
 
 const Blog = ({ posts }) => {
   const { t, lang } = useTranslation();
@@ -29,6 +30,7 @@ const Blog = ({ posts }) => {
         <meta name="description" content={t`meta:blog.description`} />
         <meta name="keywords" content={t`meta:blog.keywords`} />
       </Head>
+      <AlternateLinks url="/blog" />
       <section className={s.root}>
         <Heading2 className={s.heading}>{t`blog:heading`} </Heading2>
         {Object.keys(postsSortedChronologically)
@@ -40,7 +42,7 @@ const Blog = ({ posts }) => {
               <table className={s.table}>
                 <tbody>
                   {postsSortedChronologically[year].map(
-                    ({ slug, title, cover, datePublished }) => (
+                    ({ slug, title, icon, datePublished }) => (
                       <tr key={slug}>
                         <td>
                           <time className={s.date}>
@@ -53,7 +55,7 @@ const Blog = ({ posts }) => {
                         <td>
                           <CatalogItem
                             key={slug}
-                            icon={cover}
+                            icon={icon}
                             href={`/blog/[slug]`}
                             as={`/blog/${slug}`}
                           >

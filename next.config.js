@@ -20,6 +20,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   env: {
     SITE_URL: process.env.SITE_URL,
+    GA_TRACKING_ID: process.env.GA_TRAKING_ID,
   },
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module

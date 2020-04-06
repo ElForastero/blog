@@ -6,6 +6,7 @@ import { Provider as BookshelfProvider } from 'src/components/context/BookshelfC
 import { Books } from 'src/components/organisms/Books';
 import { Genres } from 'src/components/organisms/Genres';
 import { Common as Layout } from 'src/layouts/common';
+import { AlternateLinks } from '../../components/organisms/AlternateLinks';
 
 const Bookshelf: React.FC = () => {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ const Bookshelf: React.FC = () => {
         <meta name="description" content={t`meta:bookshelf.description`} />
         <meta name="keywords" content={t`meta:bookshelf.keywords`} />
       </Head>
+      <AlternateLinks url="/bookshelf" />
       <BookshelfProvider>
         <Books books={books} />
         <Genres books={books} />

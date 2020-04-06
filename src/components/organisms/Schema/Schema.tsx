@@ -12,6 +12,7 @@ type Props = {
   datePublished: string;
   dateModified: string;
   lang: string;
+  cover: string;
 };
 
 export const Schema: React.FC<Props> = ({
@@ -22,6 +23,7 @@ export const Schema: React.FC<Props> = ({
   slug,
   datePublished,
   dateModified,
+  cover,
   lang,
 }) => {
   const { t } = useTranslation();
@@ -35,7 +37,7 @@ export const Schema: React.FC<Props> = ({
           '@type': 'Person',
           name: t`meta:schema.author.name`,
           alternateName: t`meta:schema.author.alternateName`,
-          knowsAbout: t`meta:schema.author.knowsAbout`,
+          knowsAbout: t`meta:schema.author.knowsAbout`.split(', '),
         },
         name: title,
         headline: title,
@@ -46,6 +48,11 @@ export const Schema: React.FC<Props> = ({
         datePublished,
         dateModified,
         url: `${process.env.SITE_URL}/${lang}/blog/${slug}`,
+        image: `${process.env.SITE_URL}${cover}`,
+        publisher: {
+          '@type': 'Person',
+          name: t`meta:schema.author.name`,
+        },
       }}
     />
   );

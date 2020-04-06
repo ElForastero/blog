@@ -1,8 +1,13 @@
 import React from 'react';
 import { AppProps } from 'next/app';
+import Router from 'next/router';
+import { pageview } from 'src/libs/gtag';
 import 'src/App.css';
 
+Router.events.on('routeChangeComplete', pageview);
+
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log(pageProps);
   return <Component {...pageProps} />;
 }
 

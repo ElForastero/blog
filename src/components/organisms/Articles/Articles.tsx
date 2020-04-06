@@ -25,10 +25,10 @@ export const Articles: React.FC<Props> = ({ className, count, posts }) => {
       </Heading2>
       {posts[lang]
         .slice(0, count ?? posts.length)
-        .map(({ slug, title, cover }) => (
+        .map(({ slug, title, icon }) => (
           <CatalogItem
             key={slug}
-            icon={cover}
+            icon={icon}
             href={`/blog/[slug]`}
             as={`/blog/${slug}`}
           >
