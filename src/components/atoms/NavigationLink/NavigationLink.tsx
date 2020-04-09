@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, MouseEvent } from 'react';
+import React, { HTMLAttributes } from 'react';
 import cc from 'classcat';
 import Link from 'next-translate/Link';
 import s from './NavigationLink.module.css';
@@ -7,7 +7,6 @@ type Props = Omit<Link, 'href'> &
   HTMLAttributes<HTMLButtonElement> & {
     href?: string;
     external?: boolean;
-    onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
   };
 
 /**
@@ -18,7 +17,6 @@ export const NavigationLink: React.FC<Props> = ({
   children,
   external = false,
   href,
-  onClick,
   ...rest
 }) =>
   external && href ? (
@@ -34,9 +32,7 @@ export const NavigationLink: React.FC<Props> = ({
     </a>
   ) : href ? (
     <Link href={href} {...rest}>
-      <a className={s.root} onClick={onClick}>
-        {children}
-      </a>
+      <a className={s.root}>{children}</a>
     </Link>
   ) : (
     <button type="button" className={cc([s.root, className])} {...rest}>

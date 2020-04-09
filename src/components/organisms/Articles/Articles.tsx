@@ -24,6 +24,10 @@ export const Articles: React.FC<Props> = ({ className, count, posts }) => {
         </Button>
       </Heading2>
       {posts[lang]
+        .sort(
+          ({ datePublished: d1 }, { datePublished: d2 }) =>
+            new Date(d2).getTime() - new Date(d1).getTime()
+        )
         .slice(0, count ?? posts.length)
         .map(({ slug, title, icon }) => (
           <CatalogItem

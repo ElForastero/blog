@@ -13,5 +13,8 @@ export const Footer: React.FC = () => (
     <NavigationLink href="https://t.me/elforastero" external>
       Telegram
     </NavigationLink>
+    <NavigationLink href="https://twitter.com/el4astero" external>
+      Twitter
+    </NavigationLink>
   </footer>
 );

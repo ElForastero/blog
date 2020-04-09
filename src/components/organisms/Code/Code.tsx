@@ -9,6 +9,7 @@ import typescript from 'react-syntax-highlighter/dist/cjs/languages/prism/typesc
 import yaml from 'react-syntax-highlighter/dist/cjs/languages/prism/yaml';
 import php from 'react-syntax-highlighter/dist/cjs/languages/prism/php';
 import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
+import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 
 SyntaxHighlighter.registerLanguage('css', css);
 SyntaxHighlighter.registerLanguage('jsx', jsx);
@@ -17,6 +18,7 @@ SyntaxHighlighter.registerLanguage('javascript', javascript);
 SyntaxHighlighter.registerLanguage('typescript', typescript);
 SyntaxHighlighter.registerLanguage('yaml', yaml);
 SyntaxHighlighter.registerLanguage('php', php);
+SyntaxHighlighter.registerLanguage('bash', bash);
 
 export const Code = ({ children, className }) => {
   const language = className.replace(/language-/, '');

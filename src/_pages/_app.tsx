@@ -7,7 +7,6 @@ import 'src/App.css';
 Router.events.on('routeChangeComplete', pageview);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log(pageProps);
   return <Component {...pageProps} />;
 }
 
