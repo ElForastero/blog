@@ -24,3 +24,15 @@
   font-weight: normal;
   margin: 0;
 }
+
+@media screen and (max-width: 1200px) {
+  .hero {
+    grid-column: col / span 12;
+    margin-bottom: 0;
+  }
+
+  .contacts {
+    grid-column: col / span 12;
+    margin-bottom: var(--s12);
+  }
+}

@@ -153,6 +153,6 @@ body.dark-mode {
   --body-color: var(--neutral7);
 }
 
-body {
+body.light-mode {
   transition: background-color 500ms ease;
 }
