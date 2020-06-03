@@ -6,6 +6,7 @@
 }
 
 .contacts {
+  overflow-x: auto;
   align-items: center;
   grid-column: span 6;
   margin: 0;
