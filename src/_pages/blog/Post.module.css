@@ -112,7 +112,7 @@
   }
 }
 
-body[data-theme='dark'] .root img {
+body.dark-mode .root img {
   filter: brightness(90%);
 }
 

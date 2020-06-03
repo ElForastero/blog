@@ -82,7 +82,7 @@ body {
   color: var(--body-color);
 }
 
-body[data-theme='dark'] {
+body.dark-mode {
   --primary10: #e6e6ff;
   --primary9: #c4c6ff;
   --primary8: #a2a5fc;
@@ -151,4 +151,8 @@ body[data-theme='dark'] {
   --danger1: #610316;
 
   --body-color: var(--neutral7);
+}
+
+body {
+  transition: background-color 500ms ease;
 }

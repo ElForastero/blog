@@ -1,9 +1,10 @@
 {
   "greeting": "Hi, my name is <0>Eugene</0>. 👋",
   "welcome": "I'm a frontend engineer from Russia.",
-  "projects": "Projects",
+  "contact": "Contact me",
+  "projects": "Pet Projects",
   "talks": "Talks",
-  "tools": "Tools I'm using",
+  "tools": "The Tools I Use",
   "show_all": "Show All",
   "latest_articles": "Latest Articles"
 }

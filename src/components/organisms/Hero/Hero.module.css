@@ -1,8 +1,15 @@
-.root {
+.hero {
   display: flex;
   margin-bottom: var(--s12);
 
-  grid-column: col / span 12;
+  grid-column: span 6;
+}
+
+.contacts {
+  align-items: center;
+  grid-column: span 6;
+  margin: 0;
+  font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
 }
 
 .avatar {

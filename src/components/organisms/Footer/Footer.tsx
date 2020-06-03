@@ -16,5 +16,11 @@ export const Footer: React.FC = () => (
     <NavigationLink href="https://twitter.com/el4astero" external>
       Twitter
     </NavigationLink>
+    <NavigationLink href="https://nextjs.org" className={s.right} external>
+      Built with <span title="love">❤️</span> and Next.js
+    </NavigationLink>
+    <NavigationLink href="https://github.com/ElForastero/blog" external>
+      Sources
+    </NavigationLink>
   </footer>
 );

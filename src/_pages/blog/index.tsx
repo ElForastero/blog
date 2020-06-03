@@ -5,8 +5,8 @@ import { getAllPosts } from 'src/libs/api';
 import { Common as Layout } from 'src/layouts/common';
 import { Heading2, Heading3 } from 'src/components/atoms/Typography';
 import { CatalogItem } from 'src/components/atoms/CatalogItem';
+import { AlternateLinks } from 'src/components/organisms/AlternateLinks';
 import s from './Blog.module.css';
-import { AlternateLinks } from '../../components/organisms/AlternateLinks';
 
 const Blog = ({ posts }) => {
   const { t, lang } = useTranslation();
@@ -44,7 +44,7 @@ const Blog = ({ posts }) => {
                   {postsSortedChronologically[year].map(
                     ({ slug, title, icon, datePublished }) => (
                       <tr key={slug}>
-                        <td>
+                        <td className={s.dateCell}>
                           <time className={s.date}>
                             {new Date(datePublished).toLocaleDateString(lang, {
                               day: 'numeric',

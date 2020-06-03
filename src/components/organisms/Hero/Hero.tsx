@@ -9,13 +9,29 @@ export const Hero: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={s.root}>
-      <Avatar src={require('./assets/eugene.jpg')} className={s.avatar} />
-      <h1 className={s.description}>
-        <Trans i18nKey="home:greeting" components={[<Highlighter />]} />
+    <>
+      <div className={s.hero}>
+        <Avatar src={require('./assets/eugene.jpg')} className={s.avatar} />
+        <h1 className={s.description}>
+          <Trans i18nKey="home:greeting" components={[<Highlighter />]} />
+          <br />
+          {t`home:welcome`}
+        </h1>
+      </div>
+      <pre
+        className={s.contacts}
+        style={{
+          color: 'var(--neutral5)',
+        }}
+      >
+        <span style={{ color: 'var(--neutral5)' }}>// {t`home:contact`}</span>
         <br />
-        {t`home:welcome`}
-      </h1>
-    </div>
+        <span style={{ color: 'var(--success8)' }}>echo</span>{' '}
+        <span style={{ color: 'var(--warning8)' }}>
+          'ZXVnZW5lQGR6aHVtYWsuZGV2Cg=='
+        </span>{' '}
+        | base64 <span>-d</span>
+      </pre>
+    </>
   );
 };

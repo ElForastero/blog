@@ -22,7 +22,7 @@ export const NavigationLink: React.FC<Props> = ({
   external && href ? (
     // @ts-ignore
     <a
-      className={s.root}
+      className={cc([s.root, className])}
       href={href}
       target="_blank"
       rel="noopener noreferrer"

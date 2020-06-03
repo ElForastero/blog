@@ -1,6 +1,11 @@
 .root {
+  display: flex;
   padding-top: var(--s12);
   padding-bottom: var(--s6);
 
   grid-column: span 12;
+}
+
+.right {
+  margin-left: auto;
 }

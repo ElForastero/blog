@@ -35,7 +35,7 @@ a {
   color: var(--neutral10);
 }
 
-body[data-theme='dark'] *::selection {
+body.dark-mode *::selection {
   background-color: var(--primary7);
   color: var(--neutral8);
 }
