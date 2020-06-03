@@ -26,6 +26,8 @@ jobs:
     - name: Deploying stuff  🚀
       run: |
         touch out/.nojekyll
+        touch out/CNAME
+        echo 'dzhumak.dev' >> out/CNAME
         git config --global user.name 'GitHub Action'
         git config --global user.email 'action@github.com'
         git add out --force
