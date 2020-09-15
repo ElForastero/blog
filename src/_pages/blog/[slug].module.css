@@ -32,14 +32,15 @@
 }
 
 .root a {
-  color: var(--primary6);
-  border-bottom: 2px solid var(--primary1);
+  color: var(--primary7);
   font-weight: 500;
+  box-shadow: inset 0 -2px 0 var(--primary1);
+  transition: box-shadow .2s ease;
 }
 
 .root a:hover {
-  color: var(--primary7);
-  border-bottom-color: var(--primary7);
+  color: var(--primary8);
+  box-shadow: inset 0 -1.5em 0 var(--primary2);
 }
 
 .root a:active {

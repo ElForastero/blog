@@ -6,7 +6,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { Common as Layout } from 'src/layouts/common';
 import { Code } from 'src/components/organisms/Code';
 import { Schema } from 'src/components/organisms/Schema';
-import s from './Post.module.css';
+import s from './[slug].module.css';
 import { AlternateLinks } from '../../components/organisms/AlternateLinks';
 
 const Post = ({ status = null, slug, meta }) => {

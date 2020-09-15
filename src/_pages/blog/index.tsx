@@ -6,7 +6,7 @@ import { Common as Layout } from 'src/layouts/common';
 import { Heading2, Heading3 } from 'src/components/atoms/Typography';
 import { CatalogItem } from 'src/components/atoms/CatalogItem';
 import { AlternateLinks } from 'src/components/organisms/AlternateLinks';
-import s from './Blog.module.css';
+import s from './index.module.css';
 
 const Blog = ({ posts }) => {
   const { t, lang } = useTranslation();
