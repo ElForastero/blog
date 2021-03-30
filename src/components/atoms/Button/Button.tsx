@@ -1,6 +1,6 @@
 import React from 'react';
 import cc from 'classcat';
-import Link from 'next-translate/Link';
+import Link from 'next/link';
 import s from './Button.module.css';
 
 type Props = {

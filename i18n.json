@@ -1,10 +1,6 @@
 {
-  "allLanguages": ["en", "ru"],
-  "defaultLanguage": "en",
-  "currentPagesDir": "src/_pages",
-  "finalPagesDir": "src/pages",
-  "localesPath": "src/locales",
-  "redirectToDefaultLang": true,
+  "locales": ["en", "ru"],
+  "defaultLocale": "en",
   "pages": {
     "*": ["common", "meta"],
     "/": ["home"],

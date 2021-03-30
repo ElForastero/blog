@@ -7,7 +7,7 @@ export const LanguageSwitch: React.FC = () => {
   let newLanguage = lang === 'en' ? 'ru' : 'en';
 
   return (
-    <NavigationLink href="/" lang={newLanguage}>
+    <NavigationLink href="/" locale={newLanguage}>
       {lang === 'en' ? '🇷🇺 Русский' : '🇺🇸 English󠁧󠁢'}
     </NavigationLink>
   );

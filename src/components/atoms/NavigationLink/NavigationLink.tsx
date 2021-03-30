@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from 'react';
 import cc from 'classcat';
-import Link from 'next-translate/Link';
+import Link, { LinkProps } from 'next/link';
 import s from './NavigationLink.module.css';
 
-type Props = Omit<Link, 'href'> &
+type Props = Omit<LinkProps, 'href'> &
   HTMLAttributes<HTMLButtonElement> & {
     href?: string;
     external?: boolean;

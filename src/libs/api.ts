@@ -32,12 +32,12 @@ export function getPostBySlug(
 }
 
 export function getAllPosts(lang: string = null) {
-  const posts = config.allLanguages.reduce(
+  const posts = config.locales.reduce(
     (acc, lang) => ({ ...acc, [lang]: [] }),
     {}
   );
 
-  config.allLanguages.map(lang => {
+  config.locales.map(lang => {
     const dirContent = fs.readdirSync(join(process.cwd(), `src/posts/${lang}`));
 
     dirContent.map(dir => posts[lang].push(getPostMetaBySlug(lang, dir)));

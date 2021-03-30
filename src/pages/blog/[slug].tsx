@@ -7,7 +7,6 @@ import { Common as Layout } from 'src/layouts/common';
 import { Code } from 'src/components/organisms/Code';
 import { Schema } from 'src/components/organisms/Schema';
 import s from './[slug].module.css';
-import { AlternateLinks } from '../../components/organisms/AlternateLinks';
 
 const Post = ({ status = null, slug, meta }) => {
   const { t, lang } = useTranslation();
@@ -76,8 +75,8 @@ const Post = ({ status = null, slug, meta }) => {
   );
 };
 
-export const getStaticProps = async ({ params: { slug }, lang }) => {
-  const { default: PageContent, ...data } = getPostBySlug(lang, slug, true);
+export const getStaticProps = async ({ params: { slug }, locale }) => {
+  const { default: PageContent, ...data } = getPostBySlug(locale, slug, true);
 
   // No translation for this post
   if (PageContent === undefined) {
@@ -87,7 +86,7 @@ export const getStaticProps = async ({ params: { slug }, lang }) => {
   return {
     props: {
       ...data,
-      lang,
+      locale,
       slug,
     },
   };
@@ -97,7 +96,7 @@ export const getStaticPaths = async () => {
   const posts = getAllPosts();
 
   const paths = Object.keys(posts).flatMap(lang =>
-    posts[lang].map(({ slug }) => ({ params: { slug } }))
+    posts[lang].map(({ slug }) => ({ params: { slug }, locale: lang }))
   );
 
   return {

@@ -9,7 +9,7 @@ type Props = {
 export const AlternateLinks: React.FC<Props> = ({ url }) => {
   return (
     <Head>
-      {config.allLanguages.map(lang => (
+      {config.locales.map(lang => (
         <link
           rel="alternate"
           hrefLang={lang}

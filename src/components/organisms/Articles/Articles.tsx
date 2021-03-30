@@ -35,6 +35,7 @@ export const Articles: React.FC<Props> = ({ className, count, posts }) => {
             icon={icon}
             href={`/blog/[slug]`}
             as={`/blog/${slug}`}
+            locale={lang}
           >
             {title}
           </CatalogItem>

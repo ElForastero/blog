@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import Link from 'next-translate/Link';
+import Link, { LinkProps } from 'next/link';
 import s from './CatalogItem.module.css';
 
-type Props = Link & {
+type Props = LinkProps & {
   icon: ReactNode;
   external?: boolean;
 };
