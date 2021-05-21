@@ -12,15 +12,8 @@ export function getPostMetaBySlug(lang: string, slug: string) {
   };
 }
 
-export function getPostBySlug(
-  lang: string,
-  slug: string,
-  checkForExistence: boolean = false
-) {
-  if (
-    checkForExistence &&
-    !fs.existsSync(`src/posts/${lang}/${slug}/index.mdx`)
-  ) {
+export function getPostBySlug(lang: string, slug: string, checkForExistence: boolean = false) {
+  if (checkForExistence && !fs.existsSync(`src/posts/${lang}/${slug}/index.mdx`)) {
     return { slug, lang, post: null };
   }
 
@@ -32,15 +25,12 @@ export function getPostBySlug(
 }
 
 export function getAllPosts(lang: string = null) {
-  const posts = config.locales.reduce(
-    (acc, lang) => ({ ...acc, [lang]: [] }),
-    {}
-  );
+  const posts = config.locales.reduce((acc, lang) => ({ ...acc, [lang]: [] }), {});
 
-  config.locales.map(lang => {
+  config.locales.map((lang) => {
     const dirContent = fs.readdirSync(join(process.cwd(), `src/posts/${lang}`));
 
-    dirContent.map(dir => posts[lang].push(getPostMetaBySlug(lang, dir)));
+    dirContent.map((dir) => posts[lang].push(getPostMetaBySlug(lang, dir)));
   });
 
   return posts;

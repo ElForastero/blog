@@ -8,7 +8,7 @@
   width: 24px;
   height: 24px;
   margin-right: var(--fs3);
-  transition: opacity .2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .item {
@@ -24,7 +24,7 @@
 }
 
 .item:hover .icon {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .item:not(:last-child) {

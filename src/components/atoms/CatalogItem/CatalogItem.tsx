@@ -7,12 +7,7 @@ type Props = LinkProps & {
   external?: boolean;
 };
 
-export const CatalogItem: React.FC<Props> = ({
-  children,
-  icon,
-  external = false,
-  ...rest
-}) =>
+export const CatalogItem: React.FC<Props> = ({ children, icon, external = false, ...rest }) =>
   external ? (
     // @ts-ignore
     <a className={s.root} target="_blank" {...rest}>

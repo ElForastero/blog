@@ -47,8 +47,8 @@ export const Schema: React.FC<Props> = ({
         genre,
         datePublished,
         dateModified,
-        url: `${process.env.SITE_URL}/${lang}/blog/${slug}`,
-        image: `${process.env.SITE_URL}${cover}`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/blog/${slug}`,
+        image: `${process.env.NEXT_PUBLIC_SITE_URL}${cover}`,
         publisher: {
           '@type': 'Person',
           name: t`meta:schema.author.name`,

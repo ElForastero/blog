@@ -5,9 +5,5 @@ import { NavigationLink } from 'src/components/atoms/NavigationLink';
 export const ThemeSwitcher: React.FC = () => {
   const darkMode = useDarkMode();
 
-  return (
-    <NavigationLink onClick={darkMode.toggle}>
-      {darkMode.value ? '💡' : '🌙'}
-    </NavigationLink>
-  );
+  return <NavigationLink onClick={darkMode.toggle}>{darkMode.value ? '💡' : '🌙'}</NavigationLink>;
 };

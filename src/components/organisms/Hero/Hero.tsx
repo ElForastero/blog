@@ -24,15 +24,11 @@ export const Hero: React.FC = () => {
           color: 'var(--neutral5)',
         }}
       >
-        <span style={{ color: 'var(--neutral5)' }}>
-          // {t`home:contact`} 📬
-        </span>
+        <span style={{ color: 'var(--neutral5)' }}>// {t`home:contact`} 📬</span>
         <br />
         <span style={{ color: 'var(--success8)' }}>echo</span>{' '}
-        <span style={{ color: 'var(--warning8)' }}>
-          'ZXVnZW5lQGR6aHVtYWsuZGV2Cg=='
-        </span>{' '}
-        | base64 <span>-d</span>
+        <span style={{ color: 'var(--warning8)' }}>'ZXVnZW5lQGR6aHVtYWsuZGV2Cg=='</span> | base64{' '}
+        <span>-d</span>
       </pre>
     </>
   );

@@ -62,7 +62,7 @@ export const LightBox: React.FC<Props> = ({ children, gallery = false }) => {
               <button
                 type="button"
                 className={cc([s.control, s.left])}
-                onClick={event => {
+                onClick={(event) => {
                   event.stopPropagation();
                   setIndex(index - 1);
                 }}
@@ -75,7 +75,7 @@ export const LightBox: React.FC<Props> = ({ children, gallery = false }) => {
               <button
                 type="button"
                 className={cc([s.control, s.right])}
-                onClick={event => {
+                onClick={(event) => {
                   event.stopPropagation();
                   setIndex(index + 1);
                 }}

@@ -16,7 +16,5 @@ const reducer = (state, action) => {
 export const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { genre: null });
 
-  return (
-    <Context.Provider value={[state, dispatch]}>{children}</Context.Provider>
-  );
+  return <Context.Provider value={[state, dispatch]}>{children}</Context.Provider>;
 };

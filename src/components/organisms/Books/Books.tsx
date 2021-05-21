@@ -18,10 +18,10 @@ export const Books: React.FC<Props> = ({ books }) => {
       <Heading2>{t`bookshelf:heading`}</Heading2>
       <div className={s.books}>
         {books
-          .filter(book => {
+          .filter((book) => {
             return filters.genre ? book.genres.includes(filters.genre) : true;
           })
-          .map(book => (
+          .map((book) => (
             <Book key={book.title} className={s.book} {...book} />
           ))}
       </div>

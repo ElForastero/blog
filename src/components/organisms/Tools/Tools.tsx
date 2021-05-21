@@ -13,9 +13,11 @@ const typescript = require('src/assets/img/tools/typescript.svg');
 const docker = require('src/assets/img/tools/docker.svg');
 const laravel = require('src/assets/img/tools/laravel.svg');
 const php = require('src/assets/img/tools/php.svg');
+const node = require('src/assets/img/tools/node.svg');
 
 const tools = [
   { icon: react, title: 'React', link: 'https://reactjs.org' },
+  { icon: react, title: 'React Native', link: 'https://reactnative.dev' },
   { icon: redux, title: 'Redux', link: 'https://redux.js.org' },
   { icon: graphql, title: 'GraphQL', link: 'https://graphql.org' },
   { icon: apollo, title: 'Apollo', link: 'https://www.apollographql.com' },
@@ -36,11 +38,10 @@ const tools2 = [
   { icon: docker, title: 'Docker', link: 'https://www.docker.com' },
   { icon: laravel, title: 'Laravel', link: 'https://laravel.com' },
   { icon: php, title: 'PHP', link: 'https://www.php.net' },
+  { icon: node, title: 'Node.js', link: 'https://nodejs.org' },
 ];
 
-export const Tools: React.FC<HTMLAttributes<HTMLDivElement>> = ({
-  className,
-}) => {
+export const Tools: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
@@ -49,13 +50,7 @@ export const Tools: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       <div className={s.root}>
         <div>
           {tools.map(({ link, icon, title }) => (
-            <a
-              href={link}
-              key={title}
-              className={s.item}
-              rel="noopener,noreferrer"
-              target="_blank"
-            >
+            <a href={link} key={title} className={s.item} rel="noopener,noreferrer" target="_blank">
               <img className={s.icon} src={icon} alt={title} />
               {title}
             </a>
@@ -63,13 +58,7 @@ export const Tools: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         </div>
         <div>
           {tools2.map(({ link, icon, title }) => (
-            <a
-              href={link}
-              key={title}
-              className={s.item}
-              rel="noopener,noreferrer"
-              target="_blank"
-            >
+            <a href={link} key={title} className={s.item} rel="noopener,noreferrer" target="_blank">
               <img className={s.icon} src={icon} alt={title} />
               {title}
             </a>

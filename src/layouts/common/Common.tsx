@@ -6,10 +6,7 @@ import s from './Common.module.css';
 /**
  * Layout for Home page.
  */
-export const Common: React.FC<HTMLAttributes<HTMLDivElement>> = ({
-  className,
-  children,
-}) => {
+export const Common: React.FC<HTMLAttributes<HTMLDivElement>> = ({ children }) => {
   return (
     <div className={s.root}>
       <Header />

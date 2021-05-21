@@ -17,7 +17,21 @@ export default [
     title: 'Grokking Algorithms',
     author: 'Aditya Y. Bhargava',
     rating: '⭐️⭐️⭐️⭐️⭐',
-    cover: require('./covers/grokking-algorithms.png'),
+    cover: require('./covers/grokking-algorithms.jpg'),
     genres: ['computer_science', 'algorithms'],
+  },
+  {
+    title: 'The Mom Test',
+    author: 'Rob Fitzpatrick',
+    rating: '⭐️⭐️⭐️⭐️⭐',
+    cover: require('./covers/the-mom-test.jpg'),
+    genres: ['project_management', 'startups'],
+  },
+  {
+    title: 'Herding Cats',
+    author: 'J. Hank Rainwater',
+    rating: '⭐️⭐️⭐️',
+    cover: require('./covers/herding-cats.jpg'),
+    genres: ['management'],
   },
 ];

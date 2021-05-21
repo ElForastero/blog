@@ -3,9 +3,7 @@ import useTranslation from 'next-translate/useTranslation';
 import { Heading2 } from 'src/components/atoms/Typography';
 import { CatalogItem } from 'src/components/atoms/CatalogItem';
 
-export const Talks: React.FC<HTMLAttributes<HTMLDivElement>> = ({
-  className,
-}) => {
+export const Talks: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
   const { t } = useTranslation();
 
   return (

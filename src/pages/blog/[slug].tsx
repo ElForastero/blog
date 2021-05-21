@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
-import { getAllPosts, getPostBySlug } from 'src/libs/api';
 import { MDXProvider } from '@mdx-js/react';
+import { getAllPosts, getPostBySlug } from 'src/libs/api';
 import { Common as Layout } from 'src/layouts/common';
 import { Code } from 'src/components/organisms/Code';
 import { Schema } from 'src/components/organisms/Schema';
@@ -33,21 +33,17 @@ const Post = ({ status = null, slug, meta }) => {
           <meta property="og:description" content={meta.description} />
           <meta
             property="og:image"
-            content={`https://og-image.now.sh/${encodeURIComponent(
-              meta.title
-            )}.jpg`}
+            content={`https://og-image.now.sh/${encodeURIComponent(meta.title)}.jpg`}
           />
           <meta
             property="og:url"
-            content={`${process.env.SITE_URL}/${lang}/blog/${slug}`}
+            content={`${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/blog/${slug}`}
           />
           <meta name="twitter:title" content={meta.title} />
           <meta name="twitter:description" content={meta.description} />
           <meta
             name="twitter:image"
-            content={`https://og-image.now.sh/${encodeURIComponent(
-              meta.title
-            )}.jpg`}
+            content={`https://og-image.now.sh/${encodeURIComponent(meta.title)}.jpg`}
           />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
@@ -95,7 +91,7 @@ export const getStaticProps = async ({ params: { slug }, locale }) => {
 export const getStaticPaths = async () => {
   const posts = getAllPosts();
 
-  const paths = Object.keys(posts).flatMap(lang =>
+  const paths = Object.keys(posts).flatMap((lang) =>
     posts[lang].map(({ slug }) => ({ params: { slug }, locale: lang }))
   );
 

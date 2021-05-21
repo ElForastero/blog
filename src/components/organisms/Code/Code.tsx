@@ -1,36 +1,20 @@
-import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-light';
-import okaidia from 'react-syntax-highlighter/dist/cjs/styles/prism/okaidia';
+import React, { useEffect, useRef } from 'react';
+import Prism from 'prismjs';
+import cc from 'classcat';
+import s from './Code.module.css';
 
-import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx';
-import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
-import typescript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript';
-import yaml from 'react-syntax-highlighter/dist/cjs/languages/prism/yaml';
-import php from 'react-syntax-highlighter/dist/cjs/languages/prism/php';
-import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
-import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
+export const Code = ({ children, className, metastring: _, ...plugins }) => {
+  const elementRef = useRef(null);
 
-SyntaxHighlighter.registerLanguage('css', css);
-SyntaxHighlighter.registerLanguage('jsx', jsx);
-SyntaxHighlighter.registerLanguage('tsx', tsx);
-SyntaxHighlighter.registerLanguage('javascript', javascript);
-SyntaxHighlighter.registerLanguage('typescript', typescript);
-SyntaxHighlighter.registerLanguage('yaml', yaml);
-SyntaxHighlighter.registerLanguage('php', php);
-SyntaxHighlighter.registerLanguage('bash', bash);
-
-export const Code = ({ children, className }) => {
-  const language = className.replace(/language-/, '');
+  useEffect(() => {
+    Prism.highlightElement(elementRef.current);
+  }, []);
 
   return (
-    <SyntaxHighlighter
-      language={language}
-      style={okaidia}
-      codeTagProps={{}}
-      useInlineStyles
-    >
-      {children}
-    </SyntaxHighlighter>
+    <pre className={cc([s.code, 'line-numbers'])} {...plugins}>
+      <code ref={elementRef} className={className.replace(/\s+/, '')}>
+        {children.trim()}
+      </code>
+    </pre>
   );
 };

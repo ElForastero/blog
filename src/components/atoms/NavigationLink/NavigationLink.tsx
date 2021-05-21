@@ -20,7 +20,7 @@ export const NavigationLink: React.FC<Props> = ({
   ...rest
 }) =>
   external && href ? (
-    // @ts-ignore
+    // @ts-expect-error
     <a
       className={cc([s.root, className])}
       href={href}

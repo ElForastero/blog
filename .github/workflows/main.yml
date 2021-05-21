@@ -16,8 +16,8 @@ jobs:
 
     - name: Build 🛠
       env:
-        SITE_URL: ${{ secrets.SITE_URL }}
-        GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+        NEXT_PUBLIC_SITE_URL: ${{ secrets.SITE_URL }}
+        NEXT_PUBLIC_GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
       run: |
         npm install
         npm run build

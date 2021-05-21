@@ -11,17 +11,20 @@ const contributors = require('remark-git-contributors');
 const slug = require('remark-slug');
 const toc = require('remark-toc');
 const captions = require('remark-captions');
-const nextTranslate = require('next-translate')
+const nextTranslate = require('next-translate');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
 const nextConfig = nextTranslate({
+  future: {
+    webpack5: false,
+  },
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   env: {
-    SITE_URL: process.env.SITE_URL,
-    GA_TRACKING_ID: process.env.GA_TRACKING_ID,
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+    NEXT_PUBLIC_GA_TRACKING_ID: process.env.NEXT_PUBLIC_GA_TRACKING_ID,
   },
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module
@@ -33,42 +36,6 @@ const nextConfig = nextTranslate({
 
     config.resolve.modules.push(__dirname);
 
-    // // 👀
-    // let rule, moduleRules, cssLoader;
-    // if (
-    //   (rule = config.module.rules.find(rule =>
-    //     Object.keys(rule).includes('oneOf')
-    //   ))
-    // ) {
-    //   // Locate css-loader config for css modules
-    //   if (
-    //     (moduleRules = rule.oneOf.filter(
-    //       r =>
-    //         ('test.module.scss'.match(r.test) ||
-    //           'test.module.css'.match(r.test)) &&
-    //         Array.isArray(r.use)
-    //     ))
-    //   ) {
-    //     for (const moduleRule of moduleRules) {
-    //       if (
-    //         (cssLoader = moduleRule.use.find(u => u.loader.match('css-loader')))
-    //       ) {
-    //         cssLoader.options = {
-    //           ...cssLoader.options,
-    //           // Any custom css loader options here
-    //           modules: {
-    //             ...cssLoader.options.modules,
-    //             // Your custom css-modules options below.
-    //             getLocalIdent: () => false, // Fall back to default getLocalIdent function
-    //             localIdentName: '[sha1:hash:hex:4]',
-    //           },
-    //         };
-    //       }
-    //     }
-    //   }
-
-    //   return config;
-    // }
     return config;
   },
 });

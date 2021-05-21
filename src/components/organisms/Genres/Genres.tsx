@@ -1,10 +1,7 @@
 import React, { useMemo, useContext } from 'react';
 import cc from 'classcat';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  Context,
-  FILTER_BY_GENRE,
-} from 'src/components/context/BookshelfContext';
+import { Context, FILTER_BY_GENRE } from 'src/components/context/BookshelfContext';
 import { NavigationLink } from 'src/components/atoms/NavigationLink';
 import { Heading2 } from 'src/components/atoms/Typography';
 import s from './Genres.module.css';
@@ -24,7 +21,7 @@ export const Genres = ({ books }) => {
     <div className={s.root}>
       <Heading2>{t`bookshelf:genres`}</Heading2>
       <nav className={s.nav}>
-        {genres.map(genre => {
+        {genres.map((genre) => {
           const isActive = genre === filters.genre;
 
           return (
@@ -42,12 +39,7 @@ export const Genres = ({ books }) => {
               }
             >
               {t(`books:genres.${genre}`)}
-              {isActive && (
-                <span
-                  className={s.close}
-                  dangerouslySetInnerHTML={{ __html: cross }}
-                />
-              )}
+              {isActive && <span className={s.close} dangerouslySetInnerHTML={{ __html: cross }} />}
             </NavigationLink>
           );
         })}

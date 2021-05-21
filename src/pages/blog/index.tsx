@@ -35,36 +35,34 @@ const Blog = ({ posts }) => {
         <Heading2 className={s.heading}>{t`blog:heading`} </Heading2>
         {Object.keys(postsSortedChronologically)
           .reverse()
-          .map(year => (
+          .map((year) => (
             <section className={s.section} key={year}>
               <Heading3 className={s.heading}>{year}</Heading3>
 
               <table className={s.table}>
                 <tbody>
-                  {postsSortedChronologically[year].map(
-                    ({ slug, title, icon, datePublished }) => (
-                      <tr key={slug}>
-                        <td className={s.dateCell}>
-                          <time className={s.date}>
-                            {new Date(datePublished).toLocaleDateString(lang, {
-                              day: 'numeric',
-                              month: '2-digit',
-                            })}
-                          </time>
-                        </td>
-                        <td>
-                          <CatalogItem
-                            key={slug}
-                            icon={icon}
-                            href={`/blog/[slug]`}
-                            as={`/blog/${slug}`}
-                          >
-                            {title}
-                          </CatalogItem>
-                        </td>
-                      </tr>
-                    )
-                  )}
+                  {postsSortedChronologically[year].map(({ slug, title, icon, datePublished }) => (
+                    <tr key={slug}>
+                      <td className={s.dateCell}>
+                        <time className={s.date}>
+                          {new Date(datePublished).toLocaleDateString(lang, {
+                            day: 'numeric',
+                            month: '2-digit',
+                          })}
+                        </time>
+                      </td>
+                      <td>
+                        <CatalogItem
+                          key={slug}
+                          icon={icon}
+                          href={`/blog/[slug]`}
+                          as={`/blog/${slug}`}
+                        >
+                          {title}
+                        </CatalogItem>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </section>

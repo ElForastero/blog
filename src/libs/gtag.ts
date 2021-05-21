@@ -1,7 +1,7 @@
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-export const pageview = url => {
-  // @ts-ignore
-  window.gtag('config', process.env.GA_TRACKING_ID, {
+export const pageview = (url) => {
+  // @ts-expect-error
+  window.gtag('config', process.env.NEXT_PUBLIC_GA_TRACKING_ID, {
     page_path: url,
   });
 };
@@ -18,7 +18,7 @@ export const event = ({
   label: string;
   value?: number;
 }) => {
-  // @ts-ignore
+  // @ts-expect-error
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
